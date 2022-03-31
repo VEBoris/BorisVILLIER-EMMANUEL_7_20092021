@@ -1,0 +1,36 @@
+@import "./variables";
+
+@font-face {
+  font-family: "Croissant";
+  src: local("Croissant"),
+    url(./fonts/croissantone-regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"),
+    url(./fonts/Roboto-Medium-webfont.ttf) format("truetype");
+}
+
+* {
+  font-family: "Roboto";
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: block;
+  background: $secondary-color;
+  color: $blue-color;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Global components CSS */
