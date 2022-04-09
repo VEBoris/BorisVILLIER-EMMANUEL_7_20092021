@@ -1,16 +1,16 @@
 import { Navbar, Image } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import logo from "../../images/logo-black.png";
-import "./BrandLogo.scss";
+import logo from "../../images/logo-left.png";
+import "./LeftLogo.scss";
 
-function BrandLogo() {
+function LeftLogo() {
   return (
     <LinkContainer to="/home">
       <Navbar.Brand>
-        <Image src={logo} fluid id="brand-logo" alt="logo groupomania"/>
+        <Image src={logo} fluid id="left-logo" alt="logo groupomania"/>
       </Navbar.Brand>
     </LinkContainer>
   );
 }
 
-export default BrandLogo;
+export default LeftLogo;
