@@ -69,6 +69,7 @@ function Comment(props) {
                       name="Modify Comment"
                       className="modify-btn"
                       onClick={toggleModify}
+                      aria-label="modify button"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -86,6 +87,7 @@ function Comment(props) {
                       name="Delete Comment"
                       className="delete-btn"
                       onClick={deleteComment}
+                      aria-label="delete button"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

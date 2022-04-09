@@ -7,7 +7,7 @@ function FileInput(props) {
 
   return (
     <>
-      <form
+      <div
         action="/"
         method="post"
         encType="multipart/form-data"
@@ -33,7 +33,7 @@ function FileInput(props) {
             ? `${props.newFile.name.substr(0, 13)} ...`
             : props.text}
         </label>
-      </form>
+      </div>
     </>
   );
 }

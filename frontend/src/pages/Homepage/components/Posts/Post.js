@@ -163,7 +163,7 @@ function MainPost(props) {
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
           </svg>
         </button>
-        <Image src={props.mediaUrl} className="modal-image" />
+        <Image src={props.mediaUrl} className="modal-image" alt="post picture" />
       </Modal>
       {deleted ? ( //Lorsque le post est 'deleted', renvoie une Card modifiée.
         <Card className="w-100 main-post mb-4" id={props.id}>
@@ -185,6 +185,7 @@ function MainPost(props) {
                   src={props.profilePicture}
                   roundedCircle
                   className="profile-picture-post mr-4"
+                  alt="profile picture"
                 />
                 <Link to={`/profile/${props.authorId}`}>
                   <Card.Title className="my-auto post-author">
@@ -205,6 +206,7 @@ function MainPost(props) {
                       name="Delete Comment"
                       className="delete-btn ml-auto"
                       onClick={deletePost}
+                      aria-label="comment delete button"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -223,6 +225,7 @@ function MainPost(props) {
                       name="Modify your post"
                       className="modify-post-btn ml-auto"
                       onClick={(e) => toggleModify(e)}
+                      aria-label="modify post button"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -258,6 +261,7 @@ function MainPost(props) {
               src={props.mediaUrl}
               className="w-100"
               onClick={toggleImage}
+              aria-label="post picture"
             />
           </Card.Body>
           <Card.Footer className="pt-0 card-footer">
@@ -268,6 +272,7 @@ function MainPost(props) {
                   type="button"
                   className="toggle-comments px-1"
                   onClick={(e) => toggleComments(e)}
+                  aria-label="toggle comments button"
                 >
                   {`Commentaires (${props.commentsNumber}) :`}
                 </Button>
@@ -279,6 +284,7 @@ function MainPost(props) {
                   variant={isLiked ? "danger" : "primary"}
                   value={isLiked}
                   onClick={handleLike}
+                  aria-label="like button"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -295,7 +301,7 @@ function MainPost(props) {
                   </svg>
                   {postLikes && <span className="ml-2">{postLikes}</span>}
                 </Button>
-                <Button type="button" className="mx-1">
+                <Button type="button" className="mx-1" aria-label="share button">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -330,6 +336,7 @@ function MainPost(props) {
                       handleComment();
                     }}
                     disabled={!commentIsValid()}
+                    aria-label="rewrite button"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

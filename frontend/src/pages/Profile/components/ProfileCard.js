@@ -8,6 +8,7 @@ function ProfileCard(props) {
           src={props.profilePicture}
           roundedCircle
           className="profile-picture-post mr-4"
+          alt="profile picture"
         />
         <Card.Title className="my-auto"> {props.name} </Card.Title>
       </Card.Header>

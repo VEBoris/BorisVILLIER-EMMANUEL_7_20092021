@@ -58,6 +58,7 @@ function CreatePost(props) {
                 src={props.profilePicture}
                 roundedCircle
                 className="profile-picture mr-2"
+                alt="profile picture"
               />
             </Col>
           </InputGroup.Prepend>
@@ -73,7 +74,7 @@ function CreatePost(props) {
       </Card.Header>
       <Card.Body as={Row} className="btn-row d-flex">
         <Col xs={6} className="d-flex flex-row">
-          <Button type="button" className="mr-3">
+          <Button type="button" className="mr-3" aria-label="gif button">
             {" "}
             GIF{" "}
           </Button>
@@ -84,6 +85,7 @@ function CreatePost(props) {
             accept=".jpg, .jpeg, .png, .gif"
             newFile={newFile}
             setNewFile={setNewFile}
+            alt="post picture"
           />
         </Col>
         <Col xs={6} className="text-right">
@@ -93,6 +95,7 @@ function CreatePost(props) {
             className="publish-btn"
             onClick={handleSubmit}
             disabled={!isValid()}
+            aria-label="publisher button"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

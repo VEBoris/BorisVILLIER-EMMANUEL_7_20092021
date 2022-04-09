@@ -50,6 +50,7 @@ function ModifyComment(props) {
           type="button"
           onClick={(e) => handleModify(e)}
           disabled={!commentIsValid()}
+          aria-label="modify button"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -43,6 +43,7 @@ function ProfilePosts(props) {
           userLiked={
             post?.likedUsers?.find((u) => u.id === user.userId) ? true : false
           }
+          alt="post pictures"
         />
       ))}
     </>

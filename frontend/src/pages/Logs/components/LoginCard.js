@@ -61,7 +61,7 @@ function LoginCard(props) {
                     {" "}
                     @{" "}
                   </Form.Label>
-                  <Col sm="10">
+                  <Col sm="10" className="mb-2">
                     <Form.Control
                       type="email"
                       placeholder="Email.."
