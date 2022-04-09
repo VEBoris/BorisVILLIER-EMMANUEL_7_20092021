@@ -11,7 +11,7 @@ import {
   Modal,
 } from "react-bootstrap";
 import FooterMenu from "../../globals/Footer/FooterMenu";
-import BrandLogo from "../../globals/Header/BrandLogo";
+import LeftLogo from "../../globals/Header/LeftLogo";
 import Menu from "../../globals/Header/Menu";
 import FileInput from "../../globals/components/FileInput";
 import { withRouter } from "react-router-dom";
@@ -20,7 +20,8 @@ function Parameters(props) {
   const userStorage = localStorage.getItem("user");
   const user = JSON.parse(userStorage);
   const [infos, setInfos] = useState({});
-  const [role, setRole] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
   const [newFile, setNewFile] = useState();
   const [profilePic, setProfilePic] = useState();
   const [showDelete, setShowDelete] = useState(false);
@@ -38,7 +39,8 @@ function Parameters(props) {
       })
       .then((res) => {
         setInfos(res.data);
-        setRole(res.data.company_role);
+        setFirstname(res.data.firstname);
+        setLastname(res.data.lastname);
       })
       .catch((error) => console.log(error));
   }, [user.token]);
@@ -58,7 +60,8 @@ function Parameters(props) {
     const formData = new FormData();
 
     formData.append("File", newFile);
-    formData.append("company_role", role);
+    formData.append("firstname", firstname);
+    formData.append("lastname", lastname);
     for (var key of formData.entries()) {
       console.log(key[0] + ", " + key[1]);
     }
@@ -112,7 +115,7 @@ function Parameters(props) {
     <Container fluid className="page-container parameters">
       <Row className="parameters-header mb-1 pt-2 justify-content-between">
         <Col xs={6} sm={6} md={4} xl={3} className="d-flex logo-header">
-          <BrandLogo />
+          <LeftLogo />
         </Col>
         <Col xs={6} sm={6} md={4} xl={3} className="menu">
           <Menu />
@@ -193,6 +196,7 @@ function Parameters(props) {
               src={profilePic ? profilePic : infos.profile_picture}
               roundedCircle
               className="profile-picture parameters-picture mb-4 mx-auto"
+              alt="profil picture"
             />
             <Row className="justify-content-end px-3">
               <FileInput
@@ -207,15 +211,20 @@ function Parameters(props) {
               <Form.Label>Prénom :</Form.Label>
               <Form.Control
                 type="text"
-                placeholder={infos.firstname}
-                readOnly
+                placeholder={firstname ? firstname : infos.firstname}
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
               />
             </Form.Group>
             <Form.Group>
               <Form.Label>Nom :</Form.Label>
-              <Form.Control type="text" placeholder={infos.lastname} readOnly />
+              <Form.Control type="text" 
+                placeholder={lastname ? lastname : infos.lastname}
+                value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
+              />
             </Form.Group>
-            <Form.Group>
+            {/* <Form.Group>
               <Form.Label>Poste :</Form.Label>
               <Form.Control
                 type="text"
@@ -223,7 +232,7 @@ function Parameters(props) {
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
               />
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group>
               <Form.Label>Email :</Form.Label>
               <Form.Control type="email" placeholder={infos.email} readOnly />

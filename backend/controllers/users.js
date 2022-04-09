@@ -41,7 +41,7 @@ exports.signup = (req, res, next) => {
             password: hash,
             firstname: req.body.firstname,
             lastname: req.body.lastname,
-            company_role: req.body.company_role,
+            // company_role: req.body.company_role,
           })
           .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
           .catch((error) => res.status(400).json({ error }));
@@ -89,7 +89,7 @@ exports.getPublicInfos = (req, res, next) => {
   db.users
     .findOne({
       where: { id: req.params.userId },
-      attributes: ["firstname", "lastname", "company_role", "profile_picture"],
+      attributes: ["firstname", "lastname", "profile_picture"],
       include: [
         {
           model: db.posts,
@@ -131,7 +131,7 @@ exports.getPrivateInfos = (req, res, next) => {
       attributes: [
         "firstname",
         "lastname",
-        "company_role",
+        // "company_role",
         "profile_picture",
         "email",
       ],
@@ -158,20 +158,22 @@ exports.modifyUser = (req, res, next) => {
         "id",
         "profile_picture",
         "user_role",
-        "company_role",
+        // "company_role",
       ],
     })
     .then((user) => {
       user.update(
         req.file
           ? {
-              company_role: req.body.company_role,
+              firstname: req.body.firstname,
+              lastname: req.body.lastname,
               profile_picture: `${req.protocol}://${req.get("host")}/medias/${
                 req.file.filename
               }`,
             }
           : {
-              company_role: req.body.company_role,
+              firstname: req.body.firstname,
+              lastname: req.body.lastname,
             },
         {
           where: { id: req.user.id },

@@ -12,7 +12,7 @@ import { Alert } from "react-bootstrap";
 function SignupCard(props) {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
-  const [role, setRole] = useState("");
+  // const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
@@ -35,7 +35,6 @@ function SignupCard(props) {
       .post("http://localhost:1331/api/auth/signup", {
         firstname,
         lastname,
-        company_role: role,
         email,
         password,
       })
@@ -104,7 +103,7 @@ function SignupCard(props) {
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} controlId="role-input">
+            {/* <Form.Group as={Row} controlId="role-input">
               <Form.Label column sm="2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +125,7 @@ function SignupCard(props) {
                   onChange={(e) => setRole(e.target.value)}
                 />
               </Col>
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group as={Row} controlId="email-input">
               <Form.Label column sm="2">

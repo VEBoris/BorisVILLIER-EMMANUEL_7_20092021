@@ -13,7 +13,7 @@ exports.getAllPosts = (req, res, next) => {
             "firstname",
             "lastname",
             "profile_picture",
-            "company_role",
+            // "company_role",
           ],
         },
         {
@@ -87,7 +87,7 @@ exports.getYourLastPost = (req, res, next) => {
             "firstname",
             "lastname",
             "profile_picture",
-            "company_role",
+            // "company_role",
           ],
         },
         {
@@ -121,7 +121,7 @@ exports.getMostLikedPost = (req, res, next) => {
             "firstname",
             "lastname",
             "profile_picture",
-            "company_role",
+            // "company_role",
           ],
         },
         {

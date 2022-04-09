@@ -1,13 +1,6 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Base de données : `gpmania`
 --
@@ -75,7 +68,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `firstname`, `lastname`, `company_role`, `profile_picture`, `user_role`) VALUES
-(1, 'adminTest@gmail.com', '$2b$12$i0TxAEQ2NaXOEONQGuxUku6Ys4Pzfvyta7aR6rXpf.2UnVWXfuOeO', 'Admin', 'User', 'Administrateur', 'http://localhost:1331/medias/174039552_487529148953751_1159904828082402994_n.jpg1618752263261.jpg', 'admin'),
+(1, 'BorisAdmin@gmail.com', 'Visuya03', 'Admin', 'User', 'Administrateur', 'http://localhost:1331/medias/174039552_487529148953751_1159904828082402994_n.jpg1618752263261.jpg', 'admin'),
 (6, 'test@gmail.com', '$2b$12$M1Y5H7D7spNFvy.2XIQqkuguo/AnuA9yJw9He24wGOnIbVUGFulfS', 'Boris', 'VE', 'Devloppeur', 'http://localhost:1331/medias/173454540_1116791688794323_1173536189679175181_n.jpg1619788764398.jpg', 'guest');
 
 -- --------------------------------------------------------

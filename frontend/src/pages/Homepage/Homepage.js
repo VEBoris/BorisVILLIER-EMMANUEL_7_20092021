@@ -1,48 +1,48 @@
 import "./Homepage.scss";
 import { Container, Row, Col, Badge } from "react-bootstrap";
-import BrandLogo from "../../globals/Header/BrandLogo";
+import LeftLogo from "../../globals/Header/LeftLogo";
 import SearchBar from "../../globals/Header/SearchBar";
 import Menu from "../../globals/Header/Menu";
 import PostsList from "./components/Posts/PostsList";
 import FooterMenu from "../../globals/Footer/FooterMenu";
 import Post from "./components/Posts/Post";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import {useState } from "react";
+// import axios from "axios";
 
 function Homepage() {
   const userStorage = localStorage.getItem("user");
   const user = JSON.parse(userStorage);
   const [lastPost, setLastPost] = useState({});
   const [mostLikedPost, setMostLikedPost] = useState({});
-  const [loaded, setLoaded] = useState(false);
+  const [loaded] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:1331/api/posts/last", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      })
-      .then((res) => {
-        setLastPost(res.data[0]);
-      })
-      .catch((error) => console.log(error));
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:1331/api/posts/last", {
+  //       headers: {
+  //         Authorization: `Bearer ${user.token}`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setLastPost(res.data[0]);
+  //     })
+  //     .catch((error) => console.log(error));
 
-    axios
-      .get("http://localhost:1331/api/posts/mostLiked", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      })
-      .then((res) => {
-        setMostLikedPost(res.data[0]);
-      })
-      .catch((error) => console.log(error));
+  //   axios
+  //     .get("http://localhost:1331/api/posts/mostLiked", {
+  //       headers: {
+  //         Authorization: `Bearer ${user.token}`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setMostLikedPost(res.data[0]);
+  //     })
+  //     .catch((error) => console.log(error));
 
-    if (lastPost && mostLikedPost) {
-      setLoaded(true);
-    }
-  }, [lastPost, mostLikedPost, user.token]);
+  //   if (lastPost && mostLikedPost) {
+  //     setLoaded(true);
+  //   }
+  // }, [lastPost, mostLikedPost, user.token]);
 
   const updateComments = (postId, comment) => {
     if (postId === lastPost.id) {
@@ -61,7 +61,7 @@ function Homepage() {
     <Container fluid className="page-container homepage">
       <Row className="home-header mb-1 pt-2">
         <Col xs={6} sm={6} md={4} xl={3} className="d-flex logo-header">
-          <BrandLogo />
+          <LeftLogo />
         </Col>
         <Col className="align-self-center search-bar">
           <SearchBar md={4} xl={6} />
@@ -73,9 +73,9 @@ function Homepage() {
 
       <Row className="home-main justify-content-center">
         <Col md={3} className="text-center side-posts">
-          <Badge pill variant="danger" className="mb-4 p-2">
+          {/* <Badge pill variant="danger" className="mb-4 p-2">
             Votre dernier post :
-          </Badge>
+          </Badge> */}
           {loaded && lastPost && (
             <Post
               key={lastPost.id ? lastPost.id : "dynamicKey"}
@@ -121,9 +121,9 @@ function Homepage() {
           </Row>
         </Col>
         <Col md={3} className="text-center side-posts">
-          <Badge pill variant="danger" className="mb-4 p-2">
+          {/* <Badge pill variant="danger" className="mb-4 p-2">
             Post le plus aimé :
-          </Badge>
+          </Badge> */}
           {loaded && mostLikedPost && (
             <Post
               key={mostLikedPost.id ? mostLikedPost.id : "dynamicKey"}

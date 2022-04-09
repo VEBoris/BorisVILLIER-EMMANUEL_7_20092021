@@ -1,10 +1,10 @@
 import "./Profile.scss";
 import { Container, Row, Col } from "react-bootstrap";
-import BrandLogo from "../../globals/Header/BrandLogo";
+import AboveLogo from "../../globals/Header/AboveLogo";
 import SearchBar from "../../globals/Header/SearchBar";
 import Menu from "../../globals/Header/Menu";
 import FooterMenu from "../../globals/Footer/FooterMenu";
-import ProfileCard from "./components/ProfileCard";
+// import ProfileCard from "./components/ProfileCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ProfilePosts from "./components/ProfilePosts";
@@ -37,7 +37,7 @@ function Profile() {
     <Container fluid className="page-container profile">
       <Row className="profile-header mb-1 pt-2">
         <Col xs={6} sm={6} md={4} xl={3} className="d-flex logo-header">
-          <BrandLogo />
+          <AboveLogo />
         </Col>
         <Col className="align-self-center search-bar">
           <SearchBar md={4} xl={6} />
@@ -47,15 +47,15 @@ function Profile() {
         </Col>
       </Row>
 
-      <Row className="profile-main">
-        <Col xs={8} sm={8} md={3} className="profile-card">
+      <Row className="profile-main d-flex justify-content-center">
+        {/* <Col xs={8} sm={8} md={3} className="profile-card">
           <ProfileCard
             profilePicture={userProfile.profile_picture}
             name={`${userProfile.firstname} ${userProfile.lastname}`}
-            role={userProfile.company_role}
+            // role={userProfile.company_role}
             className="user-card"
           />
-        </Col>
+        </Col> */}
         <Col
           xs={12}
           sm={12}

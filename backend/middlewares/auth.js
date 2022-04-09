@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
       "RANDOM_TOKEN_FOR_GPM__NEED_TO_BE_DEFINED"
     );
     const user_id = decodedToken.userId;
-    const role = decodedToken.role;
+    // const role = decodedToken.role;
     /*if (userId && role && role === 'admin') {
             next();
         } else {*/

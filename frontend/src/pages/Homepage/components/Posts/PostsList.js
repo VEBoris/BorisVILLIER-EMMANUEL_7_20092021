@@ -30,7 +30,6 @@ function PostsList(props) {
             //window.location = "/";
           }
         });
-      result();
     };
 
 
@@ -92,6 +91,7 @@ function PostsList(props) {
             userLiked={
               post.likedUsers.find((u) => u.id === user.userId) ? true : false
             }
+            alt="post picture"
           />
         ))}
       </Row>
